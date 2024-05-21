@@ -24,9 +24,17 @@ useEffect(() => {
     await axios(config).then((res) => {
 
       const role = res.data.user.role;
-      if(role == "viewer"){
+  
+      if(role === "viewer"){
         reactNavigator("/viewer");
       }
+      if(role === "creator"){
+        reactNavigator("/creator");
+      }
+      if(role === "admin"){
+        reactNavigator("/admin");
+      }
+      
     })
   }
 

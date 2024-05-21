@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
-const Card = ({ image, title, summary, impressions, id }) => {
+const Card = ({ image, title, summary, impressions, _id }) => {
 
   const navigate = useNavigate();
 
@@ -13,8 +13,8 @@ const Card = ({ image, title, summary, impressions, id }) => {
       <p>{summary}</p>
       <span>{impressions} </span>
     </div>
-    <h1>{id}</h1>
-    <button onClick={()=>{navigate(`details/${id}`)}}>  Read more </button>
+    <p>{_id}</p>
+    <button onClick={()=>{navigate(`details/${_id}`)}}>  Read more </button>
   </div>)
 };
 

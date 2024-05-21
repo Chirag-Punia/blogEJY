@@ -15,6 +15,8 @@ import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./components/Dashboard";
 import { Viewer } from "./components/viewer";
 import { ViewerDetails } from "./components/viewerDetails";
+import Admin from "./components/Admin"
+import { Creator } from "./components/Creator";
 export const App = () => {
   return (
     <>
@@ -51,6 +53,8 @@ export const App = () => {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/viewer" element={<Viewer/>}/>
           <Route path="/viewerDetails" element={<ViewerDetails/>}/>
+          <Route path = "/admin" element={<Admin />}/>
+          <Route path = "/creator" element={<Creator />}/>
         </Routes>
       </BrowserRouter>
     </>

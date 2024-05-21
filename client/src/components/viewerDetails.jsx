@@ -24,7 +24,6 @@ export const ViewerDetails = () => {
     };  
     await axios(config).then((res) => {
       const user = res.data.user;
-      console.log(res.data)
       setName(user.name)
       setDob(user.dob);
       setLocation(user.location);

@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const bodyParser = require("body-parser");
-
+const blogRoutes = require("./routes/blog")
 require("dotenv").config();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,6 +22,7 @@ mongoose
 
 
 app.use("/auth", authRoutes);
+app.use("/blog",blogRoutes)
 
 
 app.get("*", (req, res) => {
