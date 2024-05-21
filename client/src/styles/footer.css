@@ -1,0 +1,52 @@
+/* Footer Styles */
+.footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }  
+  .footer-logo  {
+    height: 269px;
+    width: 392px;
+  }
+  
+  .footer-links,
+  .footer-about,
+  .footer-app,
+  .footer-social {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer-links a,
+  .footer-about a,
+  .footer-app a,
+  .footer-social a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a:hover,
+  .footer-about a:hover,
+  .footer-app a:hover,
+  .footer-social a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-address {
+    font-size: 0.8rem;
+    text-align: right;
+  }
+  
+  .footer-copy {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #333333;
+    font-size: 0.8rem;
+  }
+
+ 
