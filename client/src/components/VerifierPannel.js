@@ -59,14 +59,14 @@ export const VerifierPannel = () => {
       <button
         onClick={() => {
           localStorage.removeItem("token");
-          window.location = "/";
+          window.location = "/login";
         }}
       >
         Log Out
       </button>
       <button
         onClick={() => {
-          window.location = "/";
+          window.location = "/login";
         }}
       >
         Home

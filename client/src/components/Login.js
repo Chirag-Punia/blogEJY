@@ -40,7 +40,7 @@ const Login = () => {
       <button
         onClick={() => {
           localStorage.removeItem("token");
-          reactNavigator("/");
+          reactNavigator("/login");
         }}
       >
         Home

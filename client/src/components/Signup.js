@@ -51,7 +51,7 @@ const Signup = () => {
       <button
         onClick={() => {
           localStorage.removeItem("token");
-          reactNavigator("/");
+          reactNavigator("/login");
         }}
       >
         Home

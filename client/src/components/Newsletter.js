@@ -29,7 +29,7 @@ const NewsLetter = () => {
         toast.error("No user please signup first");
       } else {
         toast.success("Subscribed successfully");
-        reactNavigator("/");
+        reactNavigator("/login");
       }
     } catch (error) {
       setMessage("An error occurred. Please try again.");

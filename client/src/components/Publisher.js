@@ -34,7 +34,7 @@ const Publisher = () => {
         <button
           onClick={() => {
             localStorage.removeItem("token");
-            reactNavigator("/");
+            reactNavigator("/login");
           }}
         >
           Log Out

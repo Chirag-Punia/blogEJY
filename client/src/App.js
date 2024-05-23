@@ -53,19 +53,7 @@ export const App = () => {
         <BrowserRouter>
           <InitState />
           <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Nav />
-                  <Heading />
-                  <TopicSelector />
-                  <Home />
-                  <FAQ />
-                  <Footer />
-                </>
-              }
-            />
+            
             <Route path="/:role/details/:idd" element={<Details />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

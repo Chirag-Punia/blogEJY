@@ -138,7 +138,7 @@ export const AdminPannel = () => {
       <button
         className="c1"
         onClick={() => {
-          window.location = "/";
+          window.location = "/login";
         }}
       >
         Home
