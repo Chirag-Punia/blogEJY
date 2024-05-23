@@ -3,7 +3,8 @@ const express = require("express");
 const router = express.Router();
 const userSchema = require("../models/user");
 const user = mongoose.model("user", userSchema);
-
+const jwt = require("jsonwebtoken");
+const { SECRET, authenticateJwt } = require("../middleware/auth");
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
@@ -12,7 +13,8 @@ router.post("/login", async (req, res) => {
       if (password !== user.password) {
         res.json({ msg: "Wrong password" });
       } else {
-        res.json({ msg: "Login successfully" ,user});
+        const token = jwt.sign({ id: user._id }, SECRET, { expiresIn: "1h" });
+        res.json({ msg: "Login successfully" ,user,token});
       }
     } else {
       res.json({ msg: "User does not exist" });
@@ -49,11 +51,10 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.get("/me", async (req, res) => {
-  const {email} = req.body;
-  await user.findOne(email).then((user) => {
+router.get("/me",authenticateJwt, async (req, res) => {
+  await user.findOne({ _id: req.headers.userID }).then((user) => {
     if (user) {
-      res.json({user});
+      res.json({ user });
     } else {
       res.json({ message: "User not logged in" });
     }

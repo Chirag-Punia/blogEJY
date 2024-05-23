@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/App.css";
+import "react-toastify/dist/ReactToastify.css";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import FAQ from "./components/FAQ";
@@ -7,19 +8,26 @@ import Footer from "./components/Footer";
 import TopicSelector from "./components/TopicSelector";
 import Heading from "./components/Heading";
 import Details from "./components/details";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login  from "./components/Login";
 import Signup from "./components/Signup";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Admin from "./components/Admin";
 import Dashboard from "./components/Dashboard";
+import { ToastContainer } from "react-toastify";
 import { Viewer } from "./components/viewer";
-import { ViewerDetails } from "./components/viewerDetails";
-import Admin from "./components/Admin"
+import { UserDetails } from "./components/userDetails";
 import { Creator } from "./components/Creator";
+import { useNavigate} from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { RecoilRoot, useSetRecoilState } from "recoil";
+import axios from "axios";
+import { authState } from "./store/authState";
+import { CreateBlog } from "./components/createBlog";
+import { AdminPannel } from "./components/AdminPannel";
 export const App = () => {
   return (
     <>
+    <RecoilRoot>
     <ToastContainer
           position="top-right"
           autoClose={5000}
@@ -33,6 +41,7 @@ export const App = () => {
           theme="light"
         />
       <BrowserRouter>
+      <InitState />
         <Routes>
           <Route
             path="/"
@@ -52,13 +61,51 @@ export const App = () => {
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/viewer" element={<Viewer/>}/>
-          <Route path="/viewerDetails" element={<ViewerDetails/>}/>
+          <Route path="/userDetails" element={<UserDetails/>}/>
           <Route path = "/admin" element={<Admin />}/>
           <Route path = "/creator" element={<Creator />}/>
+          <Route path = "/createBlog" element={<CreateBlog />}/>
+          <Route path = "/adminPannel" element={<AdminPannel />}/>
         </Routes>
       </BrowserRouter>
+      </RecoilRoot>
     </>
   );
+};
+
+const InitState = () => {
+  const base_url = "http://localhost:5000";
+  const setAuth = useSetRecoilState(authState);
+  const navigate = useNavigate();
+  const init = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      var config = {
+        method: "GET",
+        url: `${base_url}/auth/me`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      await axios(config).then((res) => {
+        if (res.data.user.role == "admin") {
+          navigate("/admin");
+          return;
+        } else if (res.data.user) {
+          setAuth({ token: res.data.token, user: res.data.user });
+          navigate("/dashboard");
+        } else {
+          navigate("/login");
+        }
+      });
+    } catch (e) {
+      navigate("/login");
+    }
+  };
+  useEffect(() => {
+    init();
+  }, []);
+  return <></>;
 };
 
 

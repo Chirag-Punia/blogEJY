@@ -26,7 +26,7 @@ export const Viewer = () => {
       </button>
       <button
         onClick={() => {
-          reactNavigator("/viewerDetails")
+          reactNavigator("/userDetails")
         }}
       >
         User

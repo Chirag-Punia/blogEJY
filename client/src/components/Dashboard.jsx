@@ -11,15 +11,15 @@ const Dashboard = () => {
   const reactNavigator = useNavigate();
 useEffect(() => {
 
-  const email = localStorage.getItem("email");
+  const token = localStorage.getItem("token");
   const init = async () => {
     const base_url = "http://localhost:5000"
     var config = {
       method: "GET",
       url: `${base_url}/auth/me`,
-      data :{
-        email
-      }
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     };
     await axios(config).then((res) => {
 

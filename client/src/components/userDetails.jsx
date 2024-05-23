@@ -3,7 +3,7 @@ import "../styles/viewerDetails.css"
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-export const ViewerDetails = () => {
+export const UserDetails = () => {
   const reactNavigator = useNavigate();
     const [loading, setLoading] = useState(true);
     const [nname,setName] = useState();
@@ -11,17 +11,18 @@ export const ViewerDetails = () => {
     const [location,setLocation] = useState();
     const [gender,setGender] = useState();
     const [phoneNo,setphoneNo] = useState();
-    useEffect(async () => {
-        const init = async () => {
-        const email = localStorage.getItem("email");
+   
+    useEffect( () => {
+      const init = async () => {
+        const token = localStorage.getItem("token");
         const base_url = "http://localhost:5000"
         var config = {
-        method: "GET",
-         url: `${base_url}/auth/me`,
-         data :{
-        email
-      }
-    };  
+          method: "GET",
+          url: `${base_url}/auth/me`,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
     await axios(config).then((res) => {
       const user = res.data.user;
       setName(user.name)
@@ -32,7 +33,7 @@ export const ViewerDetails = () => {
       setLoading(false);
     })
     }
-    await init();  
+     init();  
     return (
       <></>
     ) 
@@ -41,7 +42,11 @@ if(!loading){
 return (
     <>
     <button onClick={() => {
-      window.location = "/viewer";
+      localStorage.removeItem("token")
+      window.location = "/"
+    }}>Log Out</button>
+    <button onClick={() => {
+      window.location = "/"
     }}>Home</button>
     <div className="user-detail">
       <h2>User Details</h2>

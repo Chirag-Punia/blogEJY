@@ -5,7 +5,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoutes = require("./routes/auth");
 const bodyParser = require("body-parser");
-const blogRoutes = require("./routes/blog")
+const blogRoutes = require("./routes/blog");
+const userDetails = require("./routes/details");
 require("dotenv").config();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,6 +24,7 @@ mongoose
 
 app.use("/auth", authRoutes);
 app.use("/blog",blogRoutes)
+app.use("/detail",userDetails);
 
 
 app.get("*", (req, res) => {

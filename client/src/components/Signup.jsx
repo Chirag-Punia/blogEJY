@@ -48,7 +48,8 @@ const Signup = () => {
   return (
     <>
      <button onClick={() => {
-      window.location = "/";
+      localStorage.removeItem("token")
+      reactNavigator("/")
     }}>Home</button>
       <div className="wrapper Signup">
         <div className="form">

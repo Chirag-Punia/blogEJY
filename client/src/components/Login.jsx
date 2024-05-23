@@ -12,7 +12,6 @@ const Login = () => {
   const reactNavigator = useNavigate();
   const handleClick = async (e) => {
     e.preventDefault();
-    localStorage.setItem("email",email);
     await axios
       .post(`${base_url}/auth/login`, {
         email: email,
@@ -22,11 +21,19 @@ const Login = () => {
         if (res.data.msg === "Wrong password") {
           toast.error("Wrong password");
         } else if (res.data.msg === "Login successfully") {
-          reactNavigator("/dashboard");
+          if (res.data.token) {
+            console.log(res.data.token)
+            localStorage.setItem("token", res.data.token);
+            if (res.data.user.role === "admin") {
+              window.location = "/admin";
+            } else {
+              window.location = "/dashboard";
+            }
+          }
           toast.success("Login successfully");
         } else {
-          toast.error("User does not exist");
-          reactNavigator("/signup");
+          toast.error("User does not exist SIGNUP!");
+          reactNavigator('/signup')
         }
       });
   };
@@ -36,7 +43,8 @@ const Login = () => {
   return (
     <>
      <button onClick={() => {
-      window.location = "/";
+      localStorage.removeItem("token");
+      reactNavigator("/")
     }}>Home</button>
 
       <div className={"wrapper signin"}>
