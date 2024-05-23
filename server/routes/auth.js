@@ -42,29 +42,40 @@ router.post("/signup", async (req, res) => {
   } else if (password.length < 2) {
     res.send("Password should be at least 6 characters");
   } else {
-    await user.findOne({ email: email }).then(async (obj) => {
-      if (obj) {
-        res.send("Email already exist");
-      } else if (obj) {
-        await user.findOne({ phoneNo }).then(async (obj2) => {
-          if (obj2) {
-            res.send("Phone Number already exist");
-          } else {
-            const newUser = new user({
-              email,
-              name,
-              password,
-              dob,
-              gender,
-              location,
-              phoneNo,
-            });
-            await newUser.save();
-            res.send("User created");
-          }
-        });
-      }
+    // await user.findOne({ email: email }).then(async (obj) => {
+    //   if (obj) {
+    //     res.send("Email already exist");
+    //   } else if (obj) {
+    //     await user.findOne({ phoneNo }).then(async (obj2) => {
+    //       if (obj2) {
+    //         res.send("Phone Number already exist");
+    //       } else {
+    //         const newUser = new user({
+    //           email,
+    //           name,
+    //           password,
+    //           dob,
+    //           gender,
+    //           location,
+    //           phoneNo,
+    //         });
+    //         await newUser.save();
+    //         res.send("User created");
+    //       }
+    //     });
+    //   }
+    // });
+    const newUser = new user({
+      email,
+      name,
+      password,
+      dob,
+      gender,
+      location,
+      phoneNo,
     });
+    await newUser.save();
+    res.send("User created");
   }
 });
 

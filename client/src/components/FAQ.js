@@ -34,7 +34,6 @@ const FAQ = () => {
               <div className="faq-question">{question}</div>
               {activeIndex === index && (
                 <div className="faq-answer">
-                  {/* Placeholder for the answer */}
                   This is the answer to the question.
                 </div>
               )}
