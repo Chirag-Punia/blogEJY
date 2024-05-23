@@ -21,7 +21,9 @@ export const Viewer = () => {
           <li>Blogs</li>
           <li>About Us</li>
         </ul>
-        <button>Join Waitlist</button>
+        <button onClick={() => {
+    reactNavigator("/newsletter");
+        }}>Join Waitlist</button>
         <button
           onClick={() => {
             reactNavigator("/userDetails");
