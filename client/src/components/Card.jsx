@@ -1,12 +1,13 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 
-const Card = ({ image, title, summary, impressions, _id }) => {
+const Card = ({ image, title, summary, impressions, _id ,isPublished}) => {
 
   const navigate = useNavigate();
 
   return(
-  <div className="card">
+    isPublished?<>
+    <div className="card">
     <img src={image} className="cardImg" alt={title} />
     <div>
       <h3>{title}</h3>
@@ -15,7 +16,10 @@ const Card = ({ image, title, summary, impressions, _id }) => {
     </div>
     <p>{_id}</p>
     <button onClick={()=>{navigate(`details/${_id}`)}}>  Read more </button>
-  </div>)
+  </div>
+    </>:<></>
+    
+  )
 };
 
 export default Card;

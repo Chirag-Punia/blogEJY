@@ -5,8 +5,6 @@ import { toast } from "react-toastify";
 
 
 
-
-
 const Dashboard = () => {
   const reactNavigator = useNavigate();
 useEffect(() => {
@@ -34,6 +32,13 @@ useEffect(() => {
       if(role === "admin"){
         reactNavigator("/admin");
       }
+      if(role === "verifier"){
+        reactNavigator("/verifier");
+      }
+      if(role === "publisher"){
+        reactNavigator("/publisher");
+      }
+
       
     })
   }

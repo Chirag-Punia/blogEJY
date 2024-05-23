@@ -61,6 +61,19 @@ router.get("/me",authenticateJwt, async (req, res) => {
   });
 });
 
+router.delete("/user/del", async (req, res) => {
+  const { ID } = req.body;
+  await user.findOne({ _id: ID }).then(async (obj) => {
+    if (obj.role == "admin") {
+      res.send("Admin");
+    } else {
+      await user.findOneAndDelete({ _id: ID }).then(() => {
+        res.send("deleted");
+      });
+    }
+  });
+});
+
 
 
 module.exports = router;

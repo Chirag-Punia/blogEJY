@@ -10,7 +10,7 @@ import Footer from './Footer'
 import { useNavigate } from 'react-router-dom'
 import logo from "../images/logo.png"
 
-export const Creator = () => {
+const Publisher = () => {
   const reactNavigator = useNavigate();
   return (
     <>
@@ -26,26 +26,19 @@ export const Creator = () => {
       
       <button
         onClick={() => {
-          reactNavigator("/createBlog")
+          reactNavigator("/publishPannel")
         }}
       >
-        Create Blog
+        Publisher Pannel
       </button>
       <button
         onClick={() => {
-          reactNavigator("/editBlog");
+          localStorage.removeItem("token");
+          reactNavigator("/")
         }}
       >
-        Edit Blog
+        Log Out
       </button>
-      <button
-        onClick={() => {
-          reactNavigator("/userDetails")
-        }}
-      >
-        Profile
-      </button>
-
     </nav>
       <Heading />
       <TopicSelector />
@@ -57,3 +50,4 @@ export const Creator = () => {
     
   )
 }
+export default Publisher;

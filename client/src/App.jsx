@@ -24,6 +24,13 @@ import axios from "axios";
 import { authState } from "./store/authState";
 import { CreateBlog } from "./components/createBlog";
 import { AdminPannel } from "./components/AdminPannel";
+import Verifier from "./components/Verifier";
+import { VerifierPannel } from "./components/VerifierPannel";
+import Publisher from "./components/Publisher";
+import { PublishPannel } from "./components/PublishPannel";
+import { EditBlog } from "./components/EditBlog";
+import { EditBlogForm } from "./components/EditBlogForm";
+
 export const App = () => {
   return (
     <>
@@ -66,6 +73,13 @@ export const App = () => {
           <Route path = "/creator" element={<Creator />}/>
           <Route path = "/createBlog" element={<CreateBlog />}/>
           <Route path = "/adminPannel" element={<AdminPannel />}/>
+          <Route path = "/verifier" element={<Verifier />}/>
+          <Route path = "/verifyPannel" element={<VerifierPannel />}/>
+          <Route path = "/publisher" element={<Publisher />}/>
+          <Route path = "/publishPannel" element={<PublishPannel />}/>
+          <Route path = "/editBlog" element={<EditBlog />}/>
+          <Route path = "/editblogform/:cardID" element={<EditBlogForm />}/>
+
         </Routes>
       </BrowserRouter>
       </RecoilRoot>
@@ -77,6 +91,7 @@ const InitState = () => {
   const base_url = "http://localhost:5000";
   const setAuth = useSetRecoilState(authState);
   const navigate = useNavigate();
+  const reactNavigator = useNavigate();
   const init = async () => {
     const token = localStorage.getItem("token");
     try {
@@ -93,7 +108,42 @@ const InitState = () => {
           return;
         } else if (res.data.user) {
           setAuth({ token: res.data.token, user: res.data.user });
-          navigate("/dashboard");
+          const token = localStorage.getItem("token");
+  const init = async () => {
+    const base_url = "http://localhost:5000"
+    var config = {
+      method: "GET",
+      url: `${base_url}/auth/me`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    await axios(config).then((res) => {
+
+      const role = res.data.user.role;
+  
+      if(role === "viewer"){
+        reactNavigator("/viewer");
+      }
+      if(role === "creator"){
+        reactNavigator("/creator");
+      }
+      if(role === "admin"){
+        reactNavigator("/admin");
+      }
+      if(role === "verifier"){
+        reactNavigator("/verifier");
+      }
+      if(role === "publisher"){
+        reactNavigator("/publisher");
+      }
+
+      
+    })
+  }
+
+  init();
+
         } else {
           navigate("/login");
         }

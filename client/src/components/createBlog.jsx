@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export const CreateBlog = () => {
     const reactNavigator = useNavigate();
+    const token = localStorage.getItem("token");
   const base_url = "http://localhost:5000";
   const [formData, setFormData] = useState({
     image: "",
@@ -22,8 +23,19 @@ export const CreateBlog = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    var config = {
+      method: "POST",
+      url: `${base_url}/blog/create`,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data : {
+        formData,
+        token
+      }
+    };
     try {
-      const response = await axios.post(`${base_url}/blog/create`, formData);
+      const response = await axios(config);
       if (response.status === 200) {
         toast.success("Blog added successfully!");
         setFormData({
