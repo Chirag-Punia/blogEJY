@@ -17,6 +17,13 @@ const Nav = () => {
       </ul>
       <button
         onClick={() => {
+          reactNavigator("/newsletter");
+        }}
+      >
+        Subscribe Newsletter
+      </button>
+      <button
+        onClick={() => {
           reactNavigator("/login");
         }}
       >

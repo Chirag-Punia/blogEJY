@@ -4,8 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Signup = () => {
-
-  const base_url = "http://localhost:5000";
+  const base_url = "https://blogejy.onrender.com";
   const reactNavigator = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +17,7 @@ const Signup = () => {
         dob,
         phoneNo,
         location,
-        gender
+        gender,
       })
       .then((res) => {
         if (res.data === "password does not match") {
@@ -32,8 +31,10 @@ const Signup = () => {
           return;
         } else if (res.data === "Email already exist") {
           toast.error("Email already exist");
+        } else if (res.data === "Phone Number already exist") {
+          toast.error("Phone Number already exist");
         } else if (res.data === "User created") {
-          reactNavigator("/");
+          reactNavigator("/login");
         }
       });
   };
@@ -47,10 +48,14 @@ const Signup = () => {
   const [dob, setDob] = useState();
   return (
     <>
-     <button onClick={() => {
-      localStorage.removeItem("token")
-      reactNavigator("/")
-    }}>Home</button>
+      <button
+        onClick={() => {
+          localStorage.removeItem("token");
+          reactNavigator("/");
+        }}
+      >
+        Home
+      </button>
       <div className="wrapper Signup">
         <div className="form">
           <div className="heading">Create an Account</div>
@@ -140,6 +145,9 @@ const Signup = () => {
             </button>
             <p className="pp">
               Have an Account ?<Link to="/login">Log in</Link>
+            </p>
+            <p className="pp">
+              <Link to="/verify">Verify your Mobile Number</Link>
             </p>
           </form>
         </div>

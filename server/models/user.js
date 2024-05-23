@@ -17,26 +17,31 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  role :{
-    type : String,
-    default : "viewer"
-  },
-  phoneNo  :{
+  role: {
     type: String,
-    required : true,
+    default: "viewer",
   },
-  location :{
+  phoneNo: {
     type: String,
-    required : false,
+    required: true,
   },
-  dob : {
+  location: {
     type: String,
-    required : false,
+    required: false,
   },
-  gender :{
+  dob: {
     type: String,
-    required : false,
-  }
+    required: false,
+  },
+  gender: {
+    type: String,
+    required: false,
+  },
+  verified: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 });
 
 module.exports = userSchema;

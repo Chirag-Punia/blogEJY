@@ -3,10 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-
-
 const Login = () => {
-  const base_url = "http://localhost:5000";
+  const base_url = "https://blogejy.onrender.com";
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const reactNavigator = useNavigate();
@@ -22,7 +20,6 @@ const Login = () => {
           toast.error("Wrong password");
         } else if (res.data.msg === "Login successfully") {
           if (res.data.token) {
-            console.log(res.data.token)
             localStorage.setItem("token", res.data.token);
             if (res.data.user.role === "admin") {
               window.location = "/admin";
@@ -33,19 +30,21 @@ const Login = () => {
           toast.success("Login successfully");
         } else {
           toast.error("User does not exist SIGNUP!");
-          reactNavigator('/signup')
+          reactNavigator("/signup");
         }
       });
   };
 
-
-  
   return (
     <>
-     <button onClick={() => {
-      localStorage.removeItem("token");
-      reactNavigator("/")
-    }}>Home</button>
+      <button
+        onClick={() => {
+          localStorage.removeItem("token");
+          reactNavigator("/");
+        }}
+      >
+        Home
+      </button>
 
       <div className={"wrapper signin"}>
         <div className="form">
@@ -75,6 +74,12 @@ const Login = () => {
           <button onClick={handleClick}>Login</button>
           <p>
             Don't have an account ? <Link to="/signup"> Sign up </Link>
+          </p>
+          <p>
+            <Link to="/forgotpassword">Forgot password </Link>
+          </p>
+          <p className="pp">
+            <Link to="/verify">Verify your Mobile Number</Link>
           </p>
         </div>
       </div>

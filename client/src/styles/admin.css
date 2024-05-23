@@ -1,0 +1,130 @@
+.c1 {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .c1:hover {
+    background-color: #0056b3;
+  }
+  .c7 {
+    width: 200px; /* Set a fixed width for the email column */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .c2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: auto;
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .c3 {
+    margin: 20px;
+    overflow-x: auto;
+  }
+  
+  .c5,
+  .c21 {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  
+  .c6,
+  .c7,
+  .c8,
+  .c9,
+  .c10,
+  .c11,
+  .c22,
+  .c23,
+  .c24,
+  .c25,
+  .c26,
+  .c27,
+  .c28 {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .c6,
+  .c7,
+  .c8,
+  .c9,
+  .c10,
+  .c11 {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .c12,
+  .c13,
+  .c14,
+  .c15,
+  .c16,
+  .c17,
+  .c29,
+  .c30,
+  .c31,
+  .c32,
+  .c33,
+  .c35,
+  .c38 {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .c18,
+  .c34,
+  .c36,
+  .c39 {
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .c18,
+  .c34 {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+  }
+  
+  .c18:hover,
+  .c34:hover {
+    background-color: #c82333;
+  }
+  
+  .c36,
+  .c39 {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+  }
+  
+  .c36:hover,
+  .c39:hover {
+    background-color: #218838;
+  }
+  
+  .c37,
+  .c40 {
+    background-color: #ffc107;
+    color: #212529;
+    border: none;
+  }
+  
+  .c37:hover,
+  .c40:hover {
+    background-color: #e0a800;
+  }
+  

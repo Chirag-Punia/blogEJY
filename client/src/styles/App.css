@@ -4,41 +4,39 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-
 }
-
 
 .button-group {
   display: flex;
   background-color: #e0e0e0;
   border-radius: 30px;
   padding: 10px;
-
-
-
 }
-.cardImg{
+
+.cardImg {
   height: 200px;
   width: 328px;
 }
-.heading{
+
+.heading {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.lang{
+
+.lang {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  height: 100%;
-  width: 80%;
 }
-#languageSelector{
+
+#languageSelector {
   border-radius: 10px;
   padding: 3px;
 }
-.button-group-container{
+
+.button-group-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +65,6 @@ body {
   font-weight: bold;
 }
 
-
 /* Topic Selector Styles */
 .topic-selector {
   display: flex;
@@ -76,7 +73,7 @@ body {
 }
 
 .topic-selector button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -101,7 +98,7 @@ body {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
-  margin: 10px;
+  margin: 20px;
   padding: 20px;
   width: 300px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -126,11 +123,79 @@ body {
   color: #999;
 }
 
-.loadbtn{
-display: flex;
-justify-content: center;
+.loadbtn {
+  display: flex;
+  justify-content: center;
 }
-.xxx{
+
+/* Symmetrical adjustments */
+.xxx {
   border-radius: 20px;
-  margin-bottom: 30px;
+  margin: 20px; /* Adjusted to match card margin */
+}
+
+/* Signup Page Styles */
+.wrapper.Signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 300px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.form label {
+  font-size: 0.9em;
+}
+
+.form input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form button {
+  width: 100%;
+  background-color: #d01c28;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center; 
+}
+
+.form button:hover {
+  background-color:#61060c;
+}
+
+.form p {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.form p a {
+  color: #4caf50;
+  text-decoration: none;
+}
+
+.form p a:hover {
+  text-decoration: underline;
 }

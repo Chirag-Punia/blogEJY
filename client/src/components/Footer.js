@@ -1,11 +1,11 @@
-import React from 'react';
-import '../styles/footer.css'; // Assuming you will create a CSS file for styling
-import footerlogo from "../images/footerlogo.png"
+import React from "react";
+import "../styles/footer.css"; // Assuming you will create a CSS file for styling
+import footerlogo from "../images/footerlogo.png";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <div >
+      <div>
         <img className="footer-logo" src={footerlogo} alt="Logo" />
       </div>
       <div className="footer-links">
@@ -30,11 +30,24 @@ const Footer = () => {
       </div>
       <div className="footer-social">
         <h4>Follow Us</h4>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Facebook
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          Twitter
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram
+        </a>
       </div>
-  
     </footer>
   );
 };
