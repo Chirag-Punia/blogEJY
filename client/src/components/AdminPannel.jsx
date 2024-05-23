@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useState } from 'react';
 export const AdminPannel = () => {
     const [loading, setLoading] = useState(true);
-    const [cardloading, setcardLoading] = useState(true);
     const [useer,setuseer] = useState({});
     const [cards,setCards] = useState();
   
