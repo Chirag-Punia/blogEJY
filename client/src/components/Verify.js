@@ -65,7 +65,7 @@ export const Verify = () => {
     <div className="g1-container">
       <h2 className="g2-title">Mobile Number Verification</h2>
       <label htmlFor="mobileNumber" className="g3-label">
-        Mobile Number:
+        Mobile Number(Without Country Code and +):
       </label>
       <input
         type="text"
