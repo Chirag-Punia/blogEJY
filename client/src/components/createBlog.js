@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "../styles/Creator.css";
-import { useNavigate } from "react-router-dom";
 
 export const CreateBlog = () => {
-  const reactNavigator = useNavigate();
   const token = localStorage.getItem("token");
   const base_url = "https://blogejy.onrender.com";
   const [formData, setFormData] = useState({

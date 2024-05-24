@@ -1,12 +1,6 @@
 import React from "react";
 import "./styles/App.css";
 import "react-toastify/dist/ReactToastify.css";
-import Home from "./components/Home";
-import Nav from "./components/Nav";
-import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
-import TopicSelector from "./components/TopicSelector";
-import Heading from "./components/Heading";
 import Details from "./components/details";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
