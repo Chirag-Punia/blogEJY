@@ -24,7 +24,7 @@ Before running the application, ensure you have Node.js and npm installed on you
 2. Navigate to the project directory:
 
    ```bash
-   cd todo
+   cd blogEJY
    ```
 
 ## Usage
