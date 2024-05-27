@@ -37,14 +37,7 @@ const Login = () => {
 
   return (
     <>
-      <button
-        onClick={() => {
-          localStorage.removeItem("token");
-          reactNavigator("/login");
-        }}
-      >
-        Home
-      </button>
+     
 
       <div className={"wrapper signin"}>
         <div className="form">
